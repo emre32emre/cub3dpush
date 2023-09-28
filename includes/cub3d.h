@@ -105,6 +105,7 @@ typedef struct s_game
 	int			key_d;
 	int			key_left;
 	int			key_right;
+	int is_fish_eye;
 	int			player;
 	int			color_flag;
 	int			dir_flag;

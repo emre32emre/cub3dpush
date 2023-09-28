@@ -78,6 +78,8 @@ int	key_press(int keycode, t_game *game)
 		game->key_left = 1;
 	else if (keycode == KEY_RIGHT)
 		game->key_right = 1;
+	else if (keycode == 18)
+		game->is_fish_eye = 1;
 	return (0);
 }
 
@@ -97,5 +99,7 @@ int	key_release(int keycode, t_game *game)
 		game->key_left = 0;
 	else if (keycode == KEY_RIGHT)
 		game->key_right = 0;
+	else if (keycode == 18)
+		game->is_fish_eye = 0;
 	return (0);
 }

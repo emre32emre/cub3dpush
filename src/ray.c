@@ -72,12 +72,23 @@ void	perform_dda(t_game *game, t_calc *calc)
 	//printf("stepx %f\n", calc->raydirx);
 
 	
- 	if (calc->side == 0)
-		calc->perpwalldist = (calc->mapx - game->ray.posx + (1 - calc->stepx) / 2) / calc->raydirx;
-	else
-		calc->perpwalldist = (calc->mapy - game->ray.posy + (1 - calc->stepy) / 2) / calc->raydiry;
+		if (calc->side == 0)
+		{
+			if (game->is_fish_eye == 1)
+				calc->perpwalldist = calc->sidedistx - calc->deltadistx;
+			else
+				calc->perpwalldist = (calc->mapx - game->ray.posx + (1 - calc->stepx) / 2) / calc->raydirx;
+		}
+			
+		else
+		{
+			if(game->is_fish_eye == 1)
+				calc->perpwalldist = calc->sidedisty - calc->deltadisty;
+			else
+				calc->perpwalldist = (calc->mapy - game->ray.ww + (1 - calc->stepy) / 2) / calc->raydiry;
+		}
 
-}
+	}
 
 void	start_ray(int x, t_game *game, t_calc *calc)
 {
