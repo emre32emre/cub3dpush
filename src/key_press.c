@@ -57,11 +57,10 @@ void	player_move(t_game *game)
 	if (game->key_a || game->key_d)
 		key_leftright(game);
 	if (game->key_right)
-		rotate_vector(game, -ROTATE_SPEED);
-	if (game->key_left)
 		rotate_vector(game, ROTATE_SPEED);
+	if (game->key_left)
+		rotate_vector(game, -ROTATE_SPEED);
 }
-
 
 int	key_press(int keycode, t_game *game)
 {

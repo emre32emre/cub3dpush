@@ -14,7 +14,7 @@
 
 void	key_leftright(t_game *game)
 {
-	if (game->key_a)
+	if (game->key_d)
 	{
 		if (game->map[(int)(game->ray.posx - 1 \
 			* game->ray.diry * game->msad * 15)] \
@@ -25,7 +25,7 @@ void	key_leftright(t_game *game)
 			* game->ray.dirx * game->msad * 15)] != '1')
 			game->ray.posy = game->ray.posy + 1 * game->ray.dirx * game->msad;
 	}
-	if (game->key_d)
+	if (game->key_a)
 	{
 		if (game->map[(int)(game->ray.posx + 1 \
 		* game->ray.diry * game->msad * 15)] \

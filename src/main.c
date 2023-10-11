@@ -51,8 +51,6 @@ void	calc(t_game *game)
 	}
 }
 
-
-
 int	main_loop(t_game *game)
 {
 	calc(game);
@@ -75,7 +73,6 @@ int	main(int argc, char **argv)
 	game.img.img = mlx_new_image(game.mlx, SCREEN_W, SCREEN_H);
 	game.img.data = (int *)mlx_get_data_addr \
 		(game.img.img, &game.img.bpp, &game.img.bpp, &game.img.bpp);
-	
 	mlx_hook(game.win, KEY_EVENT_PRESS, 0, &key_press, &game);
 	mlx_hook(game.win, KEY_EVENT_RELEASE, 0, &key_release, &game);
 	mlx_hook(game.win, KEY_EVENT_EXIT, 0, &exit_press, &game);

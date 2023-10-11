@@ -22,7 +22,7 @@ void	init_dda(t_game *game, t_calc *calc)
 	else
 	{
 		calc->stepx = 1;
-		calc->sidedistx = (calc->mapx + 1.0 - game->ray.posx) * calc->deltadistx;
+		calc->sidedistx = (calc->mapx + 1 - game->ray.posx) * calc->deltadistx;
 	}
 	if (calc->raydiry < 0)
 	{
@@ -56,20 +56,20 @@ void	perform_dda(t_game *game, t_calc *calc)
 		if (game->map[calc->mapx][calc->mapy] == '1')
 			calc->hit = 1;
 	}
-		if (calc->side == 0)
-			calc->perpwalldist = calc->sidedistx - calc->deltadistx;
-		else
-			calc->perpwalldist = calc->sidedisty - calc->deltadisty;
+	if (calc->side == 0)
+		calc->perpwalldist = calc->sidedistx - calc->deltadistx;
+	else
+		calc->perpwalldist = calc->sidedisty - calc->deltadisty;
 }
 
 void	start_ray(int x, t_game *game, t_calc *calc)
 {
-	calc->camerax = (2 * x / (double)SCREEN_W) - 1; 
-	calc->raydirx = game->ray.dirx + game->ray.planex * calc->camerax; 
-	calc->raydiry = game->ray.diry + game->ray.planey * calc->camerax; 
-	calc->mapx = (int)game->ray.posx; 
-	calc->mapy = (int)game->ray.posy; 
-	calc->deltadistx = fabs(1 / calc->raydirx); 
+	calc->camerax = (2 * x / (double)SCREEN_W) - 1;
+	calc->raydirx = game->ray.dirx + game->ray.planex * calc->camerax;
+	calc->raydiry = game->ray.diry + game->ray.planey * calc->camerax;
+	calc->mapx = (int)game->ray.posx;
+	calc->mapy = (int)game->ray.posy;
+	calc->deltadistx = fabs(1 / calc->raydirx);
 	calc->deltadisty = fabs(1 / calc->raydiry);
 	calc->hit = 0;
 }

@@ -17,24 +17,32 @@ void	player_position(t_game *game, int i, int j)
 	game->ray.posx = i + 0.5;
 	game->ray.posy = j + 0.5;
 
-	if (game->map[i][j] == 'E')
+	if (game->map[i][j] == 'W')
 	{
-		game->ray.diry = 1;
-		game->ray.planex = 0.66;
+		game->ray.dirx = -1;
+		game->ray.diry = 0;
+		game->ray.planex = 0;
+		game->ray.planey = -1;
 	}
-	else if (game->map[i][j] == 'W')
-	{
-		game->ray.diry = -1;
-		game->ray.planex = -0.66;
-	}
-	else if (game->map[i][j] == 'S')
+	else if (game->map[i][j] == 'E')
 	{
 		game->ray.dirx = 1;
-		game->ray.planey = -0.66;
+		game->ray.diry = 0;
+		game->ray.planex = 0;
+		game->ray.planey = 1;
 	}
 	else if (game->map[i][j] == 'N')
 	{
-		game->ray.dirx = -1;
-		game->ray.planey = 0.66;
+		game->ray.dirx = 0;
+		game->ray.diry = 1;
+		game->ray.planex = 1;
+		game->ray.planey = 0;
+	}
+	else if (game->map[i][j] == 'S')
+	{
+		game->ray.dirx = 0;
+		game->ray.diry = -1;
+		game->ray.planex = -1;
+		game->ray.planey = 0;
 	}
 }

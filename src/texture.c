@@ -21,7 +21,6 @@ void	init_wall_texture(t_game *game, t_calc *calc)
 	calc->drawend = calc->lineheight / 2 + SCREEN_H / 2;
 	if (calc->drawend >= SCREEN_H)
 		calc->drawend = SCREEN_H - 1;
-	//printf("drawstart :%d\ndrawend :%d\nperpwall :%0.4f\n", calc->drawstart, calc->drawend, calc->perpwalldist);
 	if (calc->raydirx > 0 && calc->side == 0)
 		calc->texnum = NO;
 	else if (calc->raydirx < 0 && calc->side == 0)
@@ -47,22 +46,19 @@ void	input_wall_texture(int x, t_game *game, t_calc *calc)
 	int		y;
 	int		color;
 
-	calc->step = 1.0 * TEX_H / calc->lineheight; // bu satır bizim için pencere ile yazdırılacak pixellerin oranlamasını yapar
+	calc->step = 1.0 * TEX_H / calc->lineheight;
 	calc->texpos = (calc->drawstart - SCREEN_H / 2 \
-		+ calc->lineheight / 2) * calc->step; //bir texture yaxdırılırken eğer yarısı yazdırılacaksa(ekran başı gibi)
-		// yazdırılmaya başlanması gereken yeri hesaplıyor 
+		+ calc->lineheight / 2) * calc->step;
 	y = -1;
 	while (++y < SCREEN_H)
 	{
 		if (y >= calc->drawstart && y <= calc->drawend)
 		{
-			calc->texy = (int)calc->texpos & (TEX_H - 1 );
+			calc->texy = (int)calc->texpos & (TEX_H - 1);
 			calc->texpos += calc->step;
 			color = game->texture[calc->texnum] \
 				[TEX_H * calc->texy + calc->texx];
-			//printf("color: %d\n", color);
-			//calc->side = 1 ;
-			if (calc->side == 1 )
+			if (calc->side == 1)
 				color = (color >> 1) & 8355711;
 			game->buf[y][x] = color;
 		}

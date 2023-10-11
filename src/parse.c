@@ -12,7 +12,6 @@
 
 #include "../includes/cub3d.h"
 
-
 void	parse_line(t_game *game, char *line)
 {
 	if (game->dir_flag > 4 || game->color_flag > 2)
