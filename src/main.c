@@ -51,6 +51,8 @@ void	calc(t_game *game)
 	}
 }
 
+
+
 int	main_loop(t_game *game)
 {
 	calc(game);

@@ -26,8 +26,8 @@ void	init_default(t_game *game)
 	game->color_flag = 0;
 	game->dir_flag = 0;
 	game->pos_flag = 0;
-	game->msws = 0.035;
-	game->msad = 0.035;
+	game->msws = SPEED;
+	game->msad = SPEED;
 	game->list = create_list();
 }
 

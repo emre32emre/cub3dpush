@@ -5,7 +5,7 @@ LIBFT			=	./Libft/libft.a
 LIBFT_PATH		=	./Libft
 MINILIBX		=	./minilibx/libmlx.a
 MINILIBX_PATH	=	./minilibx
-CFLAGS			=	-Wall -Werror -Wextra -g -I ./include -I ./Libft -I ./minilibx -O2
+CFLAGS			=	-g -I ./include -I ./Libft -I ./minilibx -O2 #-Wall -Werror -Wextra
 LFLAGS      	=   -framework OpenGL -framework AppKit -L$(MINILIBX_PATH) -lmlx
 LEAKS			=	-fsanitize=address
 RM				=	rm -f
@@ -32,7 +32,7 @@ else ifeq ($(UNAME), Darwin)
 		OS = "You are connected from -$(CYAN)KALIAQ$(X)- 💻 Welcome -$(CYAN)$(USER)$(X)-!"
 	endif
 endif
-# You can use --> man sysctl -> shell: sysctl -a | grep "hw.ncpu"
+
 
 #Directory
 OBJ_DIR			=	obj/
@@ -105,6 +105,6 @@ re:			fclean all
 			@echo Cleaned and rebuilt
 
 welcome:
-			@echo "$(RED)$ oozdiyar and ayaman $(RESET)"
+			@echo "$(RED)$ mkocabas && ykarabul $(RESET)"
 
 .PHONY:		all clean fclean re bonus norm

@@ -36,25 +36,27 @@
 
 # define BUFFER_SIZE 1024
 
-enum e_key {
-	KEY_ESC = 53,
-	KEY_EVENT_PRESS = 2,
-	KEY_EVENT_RELEASE = 3,
-	KEY_EVENT_EXIT = 17,
-	KEY_W = 13,
-	KEY_A = 0,
-	KEY_S = 1,
-	KEY_D = 2,
-	KEY_LEFT = 123,
-	KEY_RIGHT = 124
-};
+# define KEY_ESC 53
+# define KEY_EVENT_PRESS 2
+# define KEY_EVENT_RELEASE 3
+# define KEY_EVENT_EXIT 17
+# define KEY_W 13
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_LEFT 123
+# define KEY_RIGHT 124
 
-enum e_dir {
-	NO = 0,
-	SO = 1,
-	WE = 2,
-	EA = 3
-};
+# define SPEED 0.035
+# define ROTATE_SPEED 0.05 
+ 
+
+
+# define NO 0
+# define SO 1
+# define WE 2
+# define EA 3
+
 
 typedef struct s_node	t_node;
 
@@ -105,7 +107,6 @@ typedef struct s_game
 	int			key_d;
 	int			key_left;
 	int			key_right;
-	int is_fish_eye;
 	int			player;
 	int			color_flag;
 	int			dir_flag;
@@ -165,6 +166,8 @@ void		init_map(t_game *game);
 int			key_press(int keycode, t_game *game);
 int			key_release(int keycode, t_game *game);
 void		player_move(t_game *game);
+
+
 /*
 **	list.c
 */
