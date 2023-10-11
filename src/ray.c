@@ -71,21 +71,14 @@ void	perform_dda(t_game *game, t_calc *calc)
 	//printf("perwall %f\n", calc->perpwalldist);
 	//printf("stepx %f\n", calc->raydirx);
 
-	
 		if (calc->side == 0)
 		{
-			if (game->is_fish_eye == 1)
 				calc->perpwalldist = calc->sidedistx - calc->deltadistx;
-			else
-				calc->perpwalldist = (calc->mapx - game->ray.posx + (1 - calc->stepx) / 2) / calc->raydirx;
 		}
 			
 		else
 		{
-			if(game->is_fish_eye == 1)
 				calc->perpwalldist = calc->sidedisty - calc->deltadisty;
-			else
-				calc->perpwalldist = (calc->mapy - game->ray.ww + (1 - calc->stepy) / 2) / calc->raydiry;
 		}
 
 	}
@@ -99,9 +92,11 @@ void	start_ray(int x, t_game *game, t_calc *calc)
 	calc->mapx = (int)game->ray.posx; // playerin x değeri
 	//printf("ray.planey %f \r", game->ray.planey);
 	calc->mapy = (int)game->ray.posy; // playerin y değeri
-	calc->deltadistx = \
-	sqrt(1 + (calc->raydiry * calc->raydiry) / (calc->raydirx * calc->raydirx));
-	calc->deltadisty = \
-	sqrt(1 + (calc->raydirx * calc->raydirx) / (calc->raydiry * calc->raydiry));
+	// calc->deltadistx = \
+	// sqrt(1 + (calc->raydiry * calc->raydiry) / (calc->raydirx * calc->raydirx));
+	// calc->deltadisty = \
+	// sqrt(1 + (calc->raydirx * calc->raydirx) / (calc->raydiry * calc->raydiry));
+	calc->deltadistx = fabs(1 / calc->raydirx); 
+	calc->deltadisty = fabs(1 / calc->raydiry);
 	calc->hit = 0;
 }
