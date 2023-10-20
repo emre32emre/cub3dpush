@@ -34,7 +34,7 @@ void	draw(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img, 0, 0);
 }
 
-void	calc(t_game *game)
+void	raycast(t_game *game)
 {
 	int		x;
 	t_calc	calc;
@@ -53,7 +53,7 @@ void	calc(t_game *game)
 
 int	main_loop(t_game *game)
 {
-	calc(game);
+	raycast(game);
 	draw(game);
 	player_move(game);
 	return (0);

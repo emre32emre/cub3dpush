@@ -22,13 +22,13 @@ void	init_wall_texture(t_game *game, t_calc *calc)
 	if (calc->drawend >= SCREEN_H)
 		calc->drawend = SCREEN_H - 1;
 	if (calc->raydirx > 0 && calc->side == 0)
-		calc->texnum = NO;
-	else if (calc->raydirx < 0 && calc->side == 0)
-		calc->texnum = SO;
-	else if (calc->raydiry > 0 && calc->side == 1)
-		calc->texnum = WE;
-	else
 		calc->texnum = EA;
+	else if (calc->raydirx < 0 && calc->side == 0)
+		calc->texnum = WE;
+	else if (calc->raydiry > 0 && calc->side == 1)
+		calc->texnum = SO;
+	else
+		calc->texnum = NO;
 	if (calc->side == 0)
 		calc->wallx = game->ray.posy + calc->perpwalldist * calc->raydiry;
 	else

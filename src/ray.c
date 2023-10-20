@@ -53,7 +53,7 @@ void	perform_dda(t_game *game, t_calc *calc)
 			calc->mapy += calc->stepy;
 			calc->side = 1;
 		}
-		if (game->map[calc->mapx][calc->mapy] == '1')
+		if (game->map[calc->mapy][calc->mapx] == '1')
 			calc->hit = 1;
 	}
 	if (calc->side == 0)

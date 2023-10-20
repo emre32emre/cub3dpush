@@ -12,7 +12,7 @@
 
 #include "../includes/cub3d.h"
 
-static void setplane(t_game *game, char c)
+static	void	setplane(t_game *game, char c)
 {
 	if (c == 'N')
 	{
@@ -40,7 +40,6 @@ void	player_position(t_game *game, int i, int j)
 {
 	game->ray.posx = i + 0.5;
 	game->ray.posy = j + 0.5;
-
 	if (game->map[i][j] == 'N')
 	{
 		game->ray.dirx = 0;
